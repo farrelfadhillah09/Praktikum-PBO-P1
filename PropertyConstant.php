@@ -7,9 +7,11 @@ class Produk{
     public string $nama;
     public int $harga;
     public int $stok;
+   
 
     //constant
     public const PAJAK= 0.11;
+   
 }
 
 
