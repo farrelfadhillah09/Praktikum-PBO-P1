@@ -18,15 +18,24 @@ class Produk{
     public function total (){
         return $this->harga + ($this->harga * self::PAJAK);
     }
+
+    public function __construct($kode, $nama, $harga, $stok) {
+       $this->kode = $kode;
+       $this->nama = $nama;
+       $this->harga = $harga;
+       $this->stok = $stok;
+    }
+
+
 }
 
 
 //object 
-$produk = new Produk();
-$produk->kode = 'P0001';
-$produk->nama = 'Laptop';
-$produk->harga = 10000000;
-$produk->stok = 5;
+$produk = new Produk('P0001', 'Laptop', 10000000, 5);
+// $produk->kode = 'P0001';
+// $produk->nama = 'Laptop';
+// $produk->harga = 10000000;
+// $produk->stok = 5; 
 
 //hasil
 echo "Produk: ". $produk->nama;
