@@ -1,28 +1,31 @@
-<?php 
+<?php
 
-// panggil php constant
+// Panggil PHP constant
 require('./PropertyConstant.php');
 
-use Pbo\Marketplace\Produk;
+use Pbo\marketplace\Produk;
 
-//object 
-$produk = new Produk('P0001', 'Laptop', 10000000, 5);
-// $produk->kode = 'P0001';
-// $produk->nama = 'Laptop';
-// $produk->harga = 10000000;
-// $produk->stok = 5; 
+// Object
+$produk = new Produk();
 
-//hasil
-echo "Produk: ". $produk->nama;
-echo "<br/>";
+$produk->setKode('P0001')
+       ->setNama('Laptop')
+       ->setHarga(10000000)
+       ->setStok(5);
 
-echo "Harga: Rp.". $produk->harga;
-echo "<br/>";
+// Hasil
+echo "Produk: " . $produk->getNama();
+echo "<br>";
 
-echo "Stok: ". $produk->stok;
-echo "<br/>";
+echo "Harga: Rp. " . $produk->getHarga();
+echo "<br>";
 
-echo "Pajak: ". $produk->pajak() ."%";
-echo "<br/>";
+echo "Stok: " . $produk->getStok();
+echo "<br>";
 
-echo "Total harga setelah pajak: Rp.". $produk->total();
+echo "Pajak: " . $produk->pajak() . "%";
+echo "<br>";
+
+echo "Total harga setelah pajak: Rp. " . $produk->total();
+
+?>

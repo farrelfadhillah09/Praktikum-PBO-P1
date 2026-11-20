@@ -2,33 +2,68 @@
 
 namespace Pbo\marketplace;
 
-class Produk{
+class Produk
+{
+    // Property
+    private string $kode;
+    private string $nama;
+    private int $harga;
+    private int $stok;
 
-    //property
-    public string $kode;
-    public string $nama;
-    public int $harga;
-    public int $stok;
-   
+    // Constant
+    public const PAJAK = 0.11;
 
-    //constant
-    public const PAJAK= 0.11;
-      public function pajak() {
-        return self::PAJAK * 100; //11%
+    public function pajak() {
+        return self::PAJAK * 100;
     }
 
-    public function total (){
+    public function total() {
         return $this->harga + ($this->harga * self::PAJAK);
     }
 
-    public function __construct($kode, $nama, $harga, $stok) {
-       $this->kode = $kode;
-       $this->nama = $nama;
-       $this->harga = $harga;
-       $this->stok = $stok;
+    public function __construct() {
     }
 
+    // Setter
+    public function setKode($kode) {
+        $this->kode = $kode;
+        return $this;
+    }
 
+    public function setNama($nama) {
+        $this->nama = $nama;
+        return $this;
+    }
+
+    public function setHarga($harga) {
+        if ($harga <= 0) {
+            echo "Harga tidak boleh 0";
+            exit();
+        }
+
+        $this->harga = $harga;
+        return $this;
+    }
+
+    public function setStok($stok) {
+        $this->stok = $stok;
+        return $this;
+    }
+
+    // Getter
+    public function getKode() {
+        return $this->kode;
+    }
+
+    public function getNama() {
+        return $this->nama;
+    }
+
+    public function getHarga() {
+        return $this->harga;
+    }
+
+    public function getStok() {
+        return $this->stok;
+    }
 }
-
-
